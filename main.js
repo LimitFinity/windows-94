@@ -1,4 +1,5 @@
 !(() => {
+    if(le._win94) return $alert.error("Windows 94 is already on your system!");
     location.hash = "#";
     var a = document.createElement("DIV");
     a.classList.add("fillspace"), (a.style.background = "#426e82"), (a.style.zIndex = 99999990), (le.devmode = true), document.body.appendChild(a);
@@ -45,10 +46,6 @@
                 a.el.title.classList.add("splash");
         };
     setTimeout(async () => {
-        if(le._win94){
-            $alert.error("You already have Windows 94 installed")
-            document.body.removeChild(a);
-        }
         $alert({
             animationIn: "none",
             animationOut: "none",
