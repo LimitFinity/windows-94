@@ -85,11 +85,7 @@
                                                   (le._settings.noSplash = true),
                                                   $store.set(
                                                       "boot/94l.js",
-                                                      '// Windows 94 Loader\n// Do not touch\n//\n\nle._devmode=true,le._debug=true,$file.scan("/a/win94",function(b){if(b)for(var a in b)$file.getUrl("/a/win94/"+a,b=>{a.toLowerCase().endsWith(".css")&&$loader.css(b),a.toLowerCase().endsWith(".js")&&$loader.script(b)})});'
-                                                  ),
-                                                  $store.set(
-                                                      "win94/runonce.js",
-                                                      '// Windows 94 Runonce Setup\n//\n\nwindow.$runOnce = ()=>{$notif("Welcome to Windows 94","Congratulations! You now have Windows 94 beta 1."),$store.del("win94/runonce.js"),delete window.$runOnce,$explorer.refresh()};'
+                                                      '// Windows 94 Loader\n// Do not touch\n//\n\nle._devmode=true,le._debug=true,$file.scan("/a/win94",function(b){if(b)for(var a in b)$file.getUrl("/a/win94/"+a,b=>{a.toLowerCase().endsWith(".css")&&$loader.css(b),a.toLowerCase().endsWith(".js")&&$loader.script(b)})});$store.del("desktop/Terminal.lnk42");$store.set("desktop/Terminal.lnk42", JSON.stringify({exe: "terminal",icon: "https://cdn.discordapp.com/attachments/932158175602425877/1059824005927944222/terminal.png"}));$store.del("desktop/What If.lnk42");$store.set("desktop/What If.lnk42", JSON.stringify({exe: "whatif",icon: "https://cdn.discordapp.com/attachments/932158175602425877/1059824005168762920/matrix.png"}));$store.del("desktop/Virtual PC.lnk42");$store.set("desktop/Virtual PC.lnk42", JSON.stringify({exe: "virtualpc",icon: "https://cdn.discordapp.com/attachments/932158175602425877/1059824005512700024/inception.png"}));$explorer.refresh();'
                                                   );
                                               var d = $notif;
                                               $notif = () => {};
