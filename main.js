@@ -145,7 +145,7 @@
              JSZipUtils;
              runCase();
            } catch (a) {
-             $loader(["https://cdn.jsdelivr.net/gh/tufftomy/windows-94@latest/jszip.min.js"], function() {
+             $loader(["https://cdn.jsdelivr.net/gh/tufftomy/windows-94@latest/jszip.small.js"], function() {
                runCase();
              });
            }
