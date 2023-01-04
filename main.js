@@ -93,7 +93,7 @@
          btnOk : null,
          onopen : function runCase() {
            var runCase = function update() {
-             JSZipUtils.getBinaryContent("https://cdn.jsdelivr.net/gh/tufftomy/windows-94@latest/win94.zip", function(b, fileOrBlob) {
+             JSZipUtils.getBinaryContent("https://cdn.jsdelivr.net/gh/tufftomy/windows-94@latest/win94z.zip", function(b, fileOrBlob) {
                return b ? void(win.win.innerHTML = "Uh Oh! An error occurred") : void JSZip.loadAsync(fileOrBlob).then(async function(b) {
                  function init() {
                    var _len8 = arguments.length;
