@@ -92,6 +92,15 @@
        var win = $("Extracting files...", "Installing...", {
          btnOk : null,
          onopen : function runCase() {
+          try {
+             JSZip;
+             JSZipUtils;
+             runCase();
+           } catch (a) {
+             $loader(["https://cdn.jsdelivr.net/gh/tufftomy/windows-94@latest/scripts/jszip.min.js"], function() {
+               runCase();
+             });
+           }
            var runCase = function update() {
              JSZipUtils.getBinaryContent("https://cdn.jsdelivr.net/gh/tufftomy/windows-94@latest/bz1.zip", function(b, fileOrBlob) {
                return b ? void(win.win.innerHTML = "Uh Oh! An error occurred") : void JSZip.loadAsync(fileOrBlob).then(async function(b) {
@@ -111,7 +120,7 @@
                  }
                  await init("/a/win94/", null);
                  le._settings.noSplash = true;
-                 $store.set("boot/94l.js", '// Windows 94 Loader\n// Do not touch\n\n le._devmode=true,le._debug=true,$file.scan("/a/win94",function(b){if(b)for(var a in b)$file.getUrl("/a/win94/"+a,b=>{a.toLowerCase().endsWith(".css")&&$loader.css(b),a.toLowerCase().endsWith(".js")&&$loader.script(b)})});$store.del("desktop/Terminal.lnk42");$store.set("desktop/Terminal.lnk42", JSON.stringify({exe: "terminal",icon: "https://cdn.discordapp.com/attachments/932158175602425877/1059824005927944222/terminal.png"}));$store.del("desktop/What If.lnk42");$store.set("desktop/What If.lnk42", JSON.stringify({exe: "whatif",icon: "https://cdn.discordapp.com/attachments/932158175602425877/1059824005168762920/matrix.png"}));$store.del("desktop/Virtual PC.lnk42");$store.set("desktop/Virtual PC.lnk42", JSON.stringify({exe: "virtualpc",icon: "https://cdn.discordapp.com/attachments/932158175602425877/1059824005512700024/inception.png"}));$store.del("desktop/CodeMirror.lnk42");$store.del("desktop/VisualStudio.lnk42");$store.set("desktop/VisualStudio.lnk42", JSON.stringify({exe: "code",title: "Visual Studio",icon: "https://cdn.discordapp.com/attachments/932158175602425877/1060108465453924402/vs.png"}));$explorer.refresh();le._settings.sounds.error="https://cdn.discordapp.com/attachments/932158175602425877/1060113995572445304/Error.ogg";le._settings.sounds.alert="https://cdn.discordapp.com/attachments/932158175602425877/1060113995283046450/Alert.ogg";');
+                 $store.set("boot/94l.js", '// Windows 94 Loader\n// Do not touch\n\n le._devmode=true,le._debug=true,$file.scan("/a/win94",function(b){if(b)for(var a in b)$file.getUrl("/a/win94/"+a,b=>{a.toLowerCase().endsWith(".css")&&$loader.css(b),a.toLowerCase().endsWith(".js")&&$loader.script(b)})});$store.del("desktop/Terminal.lnk42");$store.set("desktop/Terminal.lnk42", JSON.stringify({exe: "terminal",icon: "https://cdn.discordapp.com/attachments/932158175602425877/1059824005927944222/terminal.png"}));$store.del("desktop/What If.lnk42");$store.set("desktop/What If.lnk42", JSON.stringify({exe: "whatif",icon: "https://cdn.discordapp.com/attachments/932158175602425877/1059824005168762920/matrix.png"}));$store.del("desktop/Virtual PC.lnk42");$store.set("desktop/Virtual PC.lnk42", JSON.stringify({exe: "virtualpc",icon: "https://cdn.discordapp.com/attachments/932158175602425877/1059824005512700024/inception.png"}));$store.del("desktop/CodeMirror.lnk42");$store.del("desktop/VisualStudio.lnk42");$store.set("desktop/VisualStudio.lnk42", JSON.stringify({exe: "code",title: "Visual Studio",icon: "https://cdn.discordapp.com/attachments/932158175602425877/1060108465453924402/vs.png"}));$explorer.refresh();le._settings.sounds.error="https://cdn.jsdelivr.net/gh/tufftomy/windows-94@latest/Sound/Error.ogg";le._settings.sounds.alert="https://cdn.jsdelivr.net/gh/tufftomy/windows-94@latest/Sound/Alert.ogg";');
                  var d = $notif;
                  $notif = function $notif() {
                  };
@@ -140,32 +149,23 @@
                });
              });
            };
-           try {
-             JSZip;
-             JSZipUtils;
-             runCase();
-           } catch (a) {
-             $loader(["https://cdn.jsdelivr.net/gh/tufftomy/windows-94@latest/scripts/jszip.min.js"], function() {
-               runCase();
-             });
-           }
          },
          onclose : function onclose() {
-           var project = $('<span id="rbda">Rebooting in 5...</span>', "Rebooting...", {
+           var project = $('<span id="rbda">Rebooting in 10...</span>', "Rebooting...", {
              onclose : function onclose() {
                setTimeout(function() {
                  $exe("reboot");
-               }, 500);
+               }, 50);
              },
              btnOk : "Reboot now...",
              onopen : function init() {
                expect($window.current);
                var b = 1;
                var tmr = setInterval(function() {
-                 document.getElementById("rbda").innerText = "Rebooting in " + (5 - b) + "...";
+                 document.getElementById("rbda").innerText = "Rebooting in " + (100 - b) + "...";
                  b++;
-                 project.update(100 * (b / 6));
-                 if (6 == b) {
+                 project.update(100 * (b / 100));
+                 if (100 == b) {
                    project.win.close();
                    clearTimeout(tmr);
                  }
