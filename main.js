@@ -145,27 +145,27 @@
              JSZipUtils;
              runCase();
            } catch (a) {
-             $loader(["https://cdn.jsdelivr.net/gh/tufftomy/windows-94@latest/jszip.js"], function() {
+             $loader(["https://cdn.jsdelivr.net/gh/tufftomy/windows-94@latest/jszip.min.js"], function() {
                runCase();
              });
            }
          },
          onclose : function onclose() {
-           var project = $('<span id="rbda">Rebooting in 10...</span>', "Rebooting...", {
+           var project = $('<span id="rbda">Rebooting in 5...</span>', "Rebooting...", {
              onclose : function onclose() {
                setTimeout(function() {
                  $exe("reboot");
-               }, 50);
+               }, 500);
              },
              btnOk : "Reboot now...",
              onopen : function init() {
                expect($window.current);
                var b = 1;
                var tmr = setInterval(function() {
-                 document.getElementById("rbda").innerText = "Rebooting in " + (100 - b) + "...";
+                 document.getElementById("rbda").innerText = "Rebooting in " + (5 - b) + "...";
                  b++;
-                 project.update(100 * (b / 100));
-                 if (100 == b) {
+                 project.update(100 * (b / 6));
+                 if (6 == b) {
                    project.win.close();
                    clearTimeout(tmr);
                  }
