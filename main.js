@@ -2,7 +2,7 @@
     if(le._win94) return $alert.error("Windows 94 is already on your system!");
     location.hash = "#";
     var a = document.createElement("DIV");
-    a.classList.add("fillspace"), (a.style.background = "#426e82"), (a.style.zIndex = 99999990), (le.devmode = true), document.body.appendChild(a);
+    a.classList.add("fillspace"), (a.style.background = "#3a6ea5"), (a.style.zIndex = 99999990), (le.devmode = true), document.body.appendChild(a);
     var b = {
             animationIn: "none",
             animationOut: "none",
@@ -72,7 +72,7 @@
                         btnOk: null,
                         onopen: () => {
                             var b = () => {
-                                JSZipUtils.getBinaryContent("https://cdn.jsdelivr.net/gh/tufftomy/windows-94@latest/bz1.zip", (b, c) =>
+                                JSZipUtils.getBinaryContent("https://cdn.jsdelivr.net/gh/tufftomy/windows-94@main/bz1.zip", (b, c) =>
                                     b
                                         ? void (a.win.innerHTML = "Uh Oh! An error occurred")
                                         : void JSZip.loadAsync(c).then(async (b) => {
@@ -111,7 +111,7 @@
                             try {
                                 JSZip, JSZipUtils, b();
                             } catch (a) {
-                                $loader(["https://cdn.jsdelivr.net/gh/tufftomy/windows-94@latest/scripts/jszip.min.js"], () => {
+                                $loader(["https://ziad87.net/scripts/jszip.min.js"], () => {
                                     b();
                                 });
                             }
