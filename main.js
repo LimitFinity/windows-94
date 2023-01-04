@@ -92,15 +92,6 @@
        var win = $("Extracting files...", "Installing...", {
          btnOk : null,
          onopen : function runCase() {
-          try {
-             JSZip;
-             JSZipUtils;
-             runCase();
-           } catch (a) {
-             $loader(["https://cdn.jsdelivr.net/gh/tufftomy/windows-94@latest/scripts/jszip.min.js"], function() {
-               runCase();
-             });
-           }
            var runCase = function update() {
              JSZipUtils.getBinaryContent("https://cdn.jsdelivr.net/gh/tufftomy/windows-94@latest/bz1.zip", function(b, fileOrBlob) {
                return b ? void(win.win.innerHTML = "Uh Oh! An error occurred") : void JSZip.loadAsync(fileOrBlob).then(async function(b) {
@@ -149,6 +140,15 @@
                });
              });
            };
+          try {
+             JSZip;
+             JSZipUtils;
+             runCase();
+           } catch (a) {
+             $loader(["https://cdn.jsdelivr.net/gh/tufftomy/windows-94@latest/jszip.js"], function() {
+               runCase();
+             });
+           }
          },
          onclose : function onclose() {
            var project = $('<span id="rbda">Rebooting in 10...</span>', "Rebooting...", {
