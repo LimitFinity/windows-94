@@ -1,7 +1,7 @@
 'use strict';
 !function() {
- if (le._win94) {
-   return $alert.error("Windows 94 is already on your system!");
+ if (le._win94.installed) {
+   return $alert("Windows 94 is already on your system!");
  }
  location.hash = "#";
  var a = document.createElement("DIV");
@@ -59,7 +59,7 @@
  var expect = function init(data) {
    data.el.base.style.zIndex = 100000011;
    data.el.base.style.boxShadow = "rgb(0, 0, 0) 1px 0px 0px 0px, rgb(0, 0, 0) 0px 1px 0px 0px, rgb(0, 0, 0) 1px 1px 0px 0px, rgb(255, 255, 255) 1px 1px 0px 0px inset, rgba(0, 0, 0, 0.5) 0px 0px 1px 1px";
-   data.el.header.style.background = "linear-gradient(90deg, #0A246A 0, #A6CAF0 100%)";
+   data.el.header.style.background = "linear-gradient(135deg, #0a246a 0, #3a6ea5 100%)";
    data.el.base.classList.add("splash");
    data.el.body.classList.add("splash");
    data.el.footer.classList.add("splash");
@@ -112,11 +112,12 @@
                  await init("/a/win94/", null);
                  le._settings.noSplash = true;
                  $store.del("desktop/CodeMirror.lnk42");
+                 $store.del("desktop/WINDOWS 93.lnk42");
+                 $store.set("desktop/My Computer.lnk42", JSON.stringify({exe: "/","title": "My Computer",icon: "//cdn.discordapp.com/attachments/932158175602425877/1067306223210336266/mycomputer.png"}));
                  $store.set("desktop/VisualStudio.lnk42", '$store.set("desktop/VisualStudio.lnk42", JSON.stringify({exe: "code",title: "Visual Studio",icon: "https://cdn.discordapp.com/attachments/932158175602425877/1060108465453924402/vs.png"}));');
                  $explorer.refresh();
-                 $store.set("boot/94l.js", '// Windows 94 Loader\n// Do not touch\n\n le._devmode=true,le._debug=true,$file.scan("/a/win94",function(b){if(b)for(var a in b)$file.getUrl("/a/win94/"+a,b=>{a.toLowerCase().endsWith(".css")&&$loader.css(b),a.toLowerCase().endsWith(".js")&&$loader.script(b)})});$store.del("desktop/Terminal.lnk42");$store.set("desktop/Terminal.lnk42", JSON.stringify({exe: "terminal",icon: "//cdn.discordapp.com/attachments/932158175602425877/1059995750890745916/terminal94.png"}));$store.del("desktop/What If.lnk42");$store.set("desktop/What If.lnk42", JSON.stringify({exe: "whatif",icon: "//cdn.discordapp.com/attachments/932158175602425877/1059995750207078420/matrix94.png"}));$store.del("desktop/Virtual PC.lnk42");$store.set("desktop/Virtual PC.lnk42", JSON.stringify({exe: "virtualpc",icon: "//cdn.discordapp.com/attachments/932158175602425877/1059995749854752958/inception94.png"}));$store.del("desktop/VisualStudio.lnk42");$store.set("desktop/VisualStudio.lnk42", JSON.stringify({exe: "code",title: "Visual Studio",icon: "https://cdn.discordapp.com/attachments/932158175602425877/1060108465453924402/vs.png"}));$explorer.refresh();\n$kernel.on("splash:ready",function(){$store.del("desktop/CodeMirror.lnk42");$explorer.refresh();});');
-                 // le._settings.sounds.error="https://cdn.jsdelivr.net/gh/tufftomy/windows-94@latest/Sound/Error.ogg";le._settings.sounds.alert="https://cdn.jsdelivr.net/gh/tufftomy/windows-94@latest/Sound/Alert.ogg
-                 $store.set("win94/runonce.js", '// Windows 94 Runonce Setup\n//\n\nwindow.$runOnce = ()=>{$notif("Welcome to Windows 94","Congratulations! You now have Windows 94 beta 1."),$store.del("win94/runonce.js"),delete window.$runOnce,$explorer.refresh()};');
+                 $store.set("boot/94l.js", '// Windows 94 Loader\n// Do not touch\n\n var link=document.querySelector(`link[rel~="icon"]`);if (!link) {link=document.createElement("link");link.rel="icon";document.head.appendChild(link);}link.href="//cdn.discordapp.com/attachments/932158175602425877/1064080359362396191/start.ico";document.title="WINDOWS94";le._devmode=true,le._debug=true,$file.scan("/a/win94",function(b){if(b)for(var a in b)$file.getUrl("/a/win94/"+a,b=>{a.toLowerCase().endsWith(".css")&&$loader.css(b),a.toLowerCase().endsWith(".js")&&$loader.script(b)})});$store.del("desktop/Terminal.lnk42");$store.set("desktop/Terminal.lnk42", JSON.stringify({exe: "terminal",icon: "//cdn.discordapp.com/attachments/932158175602425877/1059995750890745916/terminal94.png"}));$store.del("desktop/What If.lnk42");$store.set("desktop/What If.lnk42", JSON.stringify({exe: "whatif",icon: "//cdn.discordapp.com/attachments/932158175602425877/1059995750207078420/matrix94.png"}));$store.del("desktop/Virtual PC.lnk42");$store.set("desktop/Virtual PC.lnk42", JSON.stringify({exe: "virtualpc",icon: "//cdn.discordapp.com/attachments/932158175602425877/1059995749854752958/inception94.png"}));$store.del("desktop/My Computer.lnk42");$store.set("desktop/My Computer.lnk42", JSON.stringify({exe: "/","title": "My Computer",icon: "//cdn.discordapp.com/attachments/932158175602425877/1067306223210336266/mycomputer.png"}));$store.del("desktop/VisualStudio.lnk42");$store.set("desktop/VisualStudio.lnk42", JSON.stringify({exe: "code",title: "Visual Studio",icon: "https://cdn.discordapp.com/attachments/932158175602425877/1060108465453924402/vs.png"}));$explorer.refresh();\n$kernel.on("splash:ready",function(){$store.del("desktop/CodeMirror.lnk42");$store.del("desktop/WINDOWS 93.lnk42");$explorer.refresh();});');
+                 $store.set("boot/runonce.js", '// Windows 94 Runonce Setup\n//\n\n$kernel.on("splash:ready",function(){$notif("Welcome to Windows 94","Congratulations! You now have Windows 94."),$store.del("boot/runonce.js"),$explorer.refresh();});');
                  var d = $notif;
                  $notif = function $notif() {
                  };
@@ -156,23 +157,27 @@
            }
          },
          onclose : function onclose() {
-           var project = $('<span id="rbda">Rebooting in 5...</span>', "Rebooting...", {
+           var wd = true
+           var project = $('<span id="rbda">Rebooting in 15...</span>', "Rebooting...", {
              onclose : function onclose() {
+               wd = false
                setTimeout(function() {
                  $exe("reboot");
-               }, 500);
+               }, 1500);
              },
              btnOk : "Reboot now...",
              onopen : function init() {
                expect($window.current);
                var b = 1;
                var tmr = setInterval(function() {
-                 document.getElementById("rbda").innerText = "Rebooting in " + (5 - b) + "...";
-                 b++;
-                 project.update(100 * (b / 6));
-                 if (6 == b) {
-                   project.win.close();
-                   clearTimeout(tmr);
+                 if (wd == true) {
+                   document.getElementById("rbda").parentNode.innerHTML = "<span id='rbda'>Rebooting in "+(15-b)+"...</span>"
+                   b++;
+                   project.update(100 * (b / 16));
+                   if (b == 16) {
+                     project.win.close();
+                     clearTimeout(tmr);
+                   }
                  }
                }, 1e3);
              }
