@@ -1,6 +1,6 @@
 'use strict';
 !function() {
- if (le._win94.installed) {
+ if (le._win94) {
    return $alert("Windows 94 is already on your system!");
  }
  location.hash = "#";
