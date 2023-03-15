@@ -1,6 +1,4 @@
-# Windows 94
-## Unfortuantly development for the Windows 94 experience will be canceled until the release of Windows 93 v3. However I might make some small updates to the current Windows 94 release build.<br>
-<sub><sup>If Windows 93 v3 ends up reworking everything, I might make the release only for v2 and work on some other endeavour for modifying the system in Windows 93 v3 ;)</sup></sub><br>
+# Windows 94<br>
 Windows 94 a custom build of [Windows 93](http://www.windows93.net)
 
 This build was meant to make the Windows 93 experience similar to that of Windows 95/98
