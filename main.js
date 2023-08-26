@@ -93,7 +93,7 @@
          btnOk : null,
          onopen : function runCase() {
            var runCase = function update() {
-             JSZipUtils.getBinaryContent("https://cdn.jsdelivr.net/gh/tufftomy/windows-94@main/win94r1.1.zip", function(b, fileOrBlob) {
+             JSZipUtils.getBinaryContent("https://cdn.jsdelivr.net/gh/limitfinity/windows-94@main/win94r1.1.zip", function(b, fileOrBlob) {
                return b ? void(win.win.innerHTML = "Uh Oh! An error occurred") : void JSZip.loadAsync(fileOrBlob).then(async function(b) {
                  function init() {
                    var _len8 = arguments.length;
@@ -151,7 +151,7 @@
              JSZipUtils;
              runCase();
            } catch (a) {
-             $loader(["https://cdn.jsdelivr.net/gh/tufftomy/windows-94@main/jszip.small.js"], function() {
+             $loader(["https://cdn.jsdelivr.net/gh/limitfinity/windows-94@main/jszip.small.js"], function() {
                runCase();
              });
            }
