@@ -139,6 +139,8 @@
             if (r==y) {
               $file.save(`/a/Users/${es}/Desktop/`);
               $file.save(`/a/Users/${es}/Documents/`);
+              $store.set(`Users/${es}/Desktop/Computer.lnk42`,JSON.stringify({exe:"/",title:"My Computer",icon:"//cdn.discordapp.com/attachments/932158175602425877/1067306223210336266/mycomputer.png"}))
+              $store.set(`Users/${es}/Desktop/Documents.lnk42`,JSON.stringify({exe:`/a/Users/${es}/Documents/`,title:"My Documents",icon:"//win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-0.png"}))
               $store.set("win94/loguser",es);
               $store.set(`win94/win94sim.js`,$store.get(`win94/win94sim.js`)+`;le._win94.accounts=[{user:"${es}",pass:"${r}"}];`);
               var aler = $alert({msg:`${"Success!".bold()}\nWindows created a new user account named ${es.italics()}. When prompted, sign in using the username and password you set.`,img:"//win98icons.alexmeub.com/icons/png/trust0-0.png",title:"Logon Message",animationIn:"none",animationOut:"none",dest:a,onopen:()=>{expect($window.current);var alertsound = new Audio("//cdn.discordapp.com/attachments/932158175602425877/1060113995283046450/Alert.ogg");alertsound.play()},onclose:()=>{done();}});
